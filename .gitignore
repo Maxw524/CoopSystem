@@ -1,0 +1,20 @@
+﻿# 🔒 Dados sensíveis
+.env
+.env.*
+appsettings.json
+appsettings.*.json
+logs/
+# 🧱 Build / cache
+bin/
+obj/
+.vs/
+node_modules/
+dist/
+publish/
+
+# 📝 Logs
+logs/
+
+# 💻 OS
+Thumbs.db
+.DS_Store
