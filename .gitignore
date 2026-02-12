@@ -1,20 +1,42 @@
-﻿# 🔒 Dados sensíveis
-.env
-.env.*
-appsettings.json
-appsettings.*.json
-logs/
-# 🧱 Build / cache
+﻿# =========================
+# .NET
+# =========================
 bin/
 obj/
+*.user
+*.suo
+*.cache
+*.log
+
+# =========================
+# Configurações sensíveis
+# =========================
+appsettings.json
+appsettings.*.json
+.env
+.env.*
+
+# =========================
+# Publish / Windows Service
+# =========================
+publish/
+out/
+
+# =========================
+# Visual Studio
+# =========================
 .vs/
+.vscode/
+
+# =========================
+# Node / Front (React)
+# =========================
 node_modules/
 dist/
-publish/
+build/
 
-# 📝 Logs
-logs/
-
-# 💻 OS
+# =========================
+# Sistema operacional
+# =========================
 Thumbs.db
-.DS_Store
+Desktop.ini
