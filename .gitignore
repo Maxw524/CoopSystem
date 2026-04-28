@@ -58,6 +58,10 @@ logs/
 *.xls
 *.csv
 
+# Certificates
+certs/
+certificados/
+
 # OS
 .DS_Store
 Thumbs.db
