@@ -1,0 +1,15 @@
+{
+  "slug": "Dashboards",
+  "title": "Dashboards",
+  "description": "Catalogo do dashboard Python de recuperacao de prejuizo.",
+  "group": "Dashboards Python",
+  "permissionKey": "dashboard",
+  "embedUrl": "https://localhost:8501",
+  "icon": "line-chart",
+  "order": 10,
+  "enabled": true,
+  "autoStart": true,
+  "scriptPath": "main.py",
+  "port": 8501,
+  "pythonExecutable": "python"
+}

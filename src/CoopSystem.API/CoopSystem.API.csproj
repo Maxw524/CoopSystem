@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>CoopSystem.API</RootNamespace>
+    <UserSecretsId>a6a1c781-8fb4-4304-9888-26fece77dca0</UserSecretsId>
+    <SpaRoot>..\..\wwwroot</SpaRoot>
+  </PropertyGroup>
+
+  <!-- PACOTES PRINCIPAIS -->
+  <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="8.0.0" />
+    <PackageReference Include="Select.HtmlToPdf.NetCore" Version="25.2.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />
+    <PackageReference Include="Serilog.Formatting.Compact" Version="3.0.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.1.2" />
+  </ItemGroup>
+
+  <!-- REFERÊNCIA AOS MÓDULOS -->
+  <ItemGroup>
+    <ProjectReference Include="..\..\modules\Recoopera.Module\Recoopera.Module.csproj" SkipGetTargetFrameworkProperties="true" />
+    <ProjectReference Include="..\..\modules\Sistrawts.Module\Sistrawts.Module.csproj" SkipGetTargetFrameworkProperties="true" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Infrastructure\AuthDbContext.cs" />
+    <Compile Remove="Migrations\20260304105725_InitialCreate.cs" />
+    <Compile Remove="Migrations\20260304105725_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20260317184849_InitialCreateAuthFixed.cs" />
+    <Compile Remove="Migrations\20260317184849_InitialCreateAuthFixed.Designer.cs" />
+    <Compile Remove="Migrations\AuthDbContextModelSnapshot.cs" />
+    <Compile Remove="Migrations\SistrawtsDb\20260309140302_AddSistrawtsTables.cs" />
+    <Compile Remove="Migrations\SistrawtsDb\20260309140302_AddSistrawtsTables.Designer.cs" />
+    <Compile Remove="Migrations\SistrawtsDb\20260313105814_AddIndicadoresTablesOnly.cs" />
+    <Compile Remove="Migrations\SistrawtsDb\20260313105814_AddIndicadoresTablesOnly.Designer.cs" />
+    <Compile Remove="Migrations\SistrawtsDb\20260313113358_AddSubcategoriasIndicadores.cs" />
+    <Compile Remove="Migrations\SistrawtsDb\20260313113358_AddSubcategoriasIndicadores.Designer.cs" />
+    <Compile Remove="Migrations\SistrawtsDb\20260313121530_AddSubcategoriaToMetasAndResultados.cs" />
+    <Compile Remove="Migrations\SistrawtsDb\20260313121530_AddSubcategoriaToMetasAndResultados.Designer.cs" />
+    <Compile Remove="Migrations\SistrawtsDb\SistrawtsDbContextModelSnapshot.cs" />
+  </ItemGroup>
+
+</Project>

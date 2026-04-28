@@ -1,0 +1,38 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoopSystem.API", "src\CoopSystem.API\CoopSystem.API.csproj", "{4544B031-BD61-41F5-879B-FE5B467B13C4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Recoopera.Module", "modules\Recoopera.Module\Recoopera.Module.csproj", "{9604E960-8B9D-4F60-A9B6-085C5E102674}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "modules", "modules", "{4A7D07EC-13F9-47B4-9D8E-1E7489C19297}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sistrawts.Module", "modules\Sistrawts.Module\Sistrawts.Module.csproj", "{6A4B7D65-25CC-4781-B236-602EE122A0D9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4544B031-BD61-41F5-879B-FE5B467B13C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4544B031-BD61-41F5-879B-FE5B467B13C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4544B031-BD61-41F5-879B-FE5B467B13C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4544B031-BD61-41F5-879B-FE5B467B13C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9604E960-8B9D-4F60-A9B6-085C5E102674}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9604E960-8B9D-4F60-A9B6-085C5E102674}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9604E960-8B9D-4F60-A9B6-085C5E102674}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9604E960-8B9D-4F60-A9B6-085C5E102674}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A4B7D65-25CC-4781-B236-602EE122A0D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A4B7D65-25CC-4781-B236-602EE122A0D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A4B7D65-25CC-4781-B236-602EE122A0D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A4B7D65-25CC-4781-B236-602EE122A0D9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6A4B7D65-25CC-4781-B236-602EE122A0D9} = {4A7D07EC-13F9-47B4-9D8E-1E7489C19297}
+	EndGlobalSection
+EndGlobal

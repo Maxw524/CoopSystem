@@ -1,0 +1,38 @@
+# CoopSystem Frontend Dockerfile
+FROM node:18-alpine AS builder
+
+WORKDIR /app
+
+# Copiar package files
+COPY frontend/package*.json ./
+
+# Instalar dependências
+RUN npm ci --only=production
+
+# Copiar código fonte
+COPY frontend/ .
+
+# Build
+RUN npm run build
+
+# Nginx para servir arquivos estáticos
+FROM nginx:alpine AS production
+
+# Copiar build para nginx
+COPY --from=builder /app/build /usr/share/nginx/html
+
+# Copiar configuração nginx
+COPY deploy/nginx/nginx.conf /etc/nginx/conf.d/default.conf
+
+# Criar diretório de cache
+RUN mkdir -p /var/cache/nginx && \
+    chown -R nginx:nginx /var/cache/nginx && \
+    chown -R nginx:nginx /usr/share/nginx/html
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost/health.html || exit 1
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]

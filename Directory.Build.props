@@ -1,0 +1,14 @@
+<Project>
+  <PropertyGroup>
+    <DefaultItemExcludes>$(DefaultItemExcludes);bin\**;obj\**</DefaultItemExcludes>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(CoopSystemBaseIntermediateOutputPath)' != ''">
+    <BaseIntermediateOutputPath>$(CoopSystemBaseIntermediateOutputPath)\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
+    <MSBuildProjectExtensionsPath>$(BaseIntermediateOutputPath)</MSBuildProjectExtensionsPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(CoopSystemBaseOutputPath)' != ''">
+    <BaseOutputPath>$(CoopSystemBaseOutputPath)\$(MSBuildProjectName)\</BaseOutputPath>
+  </PropertyGroup>
+</Project>

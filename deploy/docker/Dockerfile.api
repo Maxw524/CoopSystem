@@ -1,0 +1,48 @@
+# CoopSystem API Dockerfile
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+WORKDIR /app
+EXPOSE 8080
+
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+
+# Copiar arquivos de projeto
+COPY ["src/CoopSystem.API/CoopSystem.API.csproj", "src/CoopSystem.API/"]
+COPY ["modules/Recoopera.Module/Recoopera.Module.csproj", "modules/Recoopera.Module/"]
+COPY ["modules/Core/Shared/Core.Shared.csproj", "modules/Core/Shared/"]
+
+# Restaurar dependências
+RUN dotnet restore "src/CoopSystem.API/CoopSystem.API.csproj"
+
+# Copiar código fonte
+COPY . .
+
+# Build
+WORKDIR "/src/src/CoopSystem.API"
+RUN dotnet build "CoopSystem.API.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "CoopSystem.API.csproj" -c Release -o /app/publish
+
+FROM base AS final
+WORKDIR /app
+
+# Criar usuário não-root
+RUN adduser --disabled-password --gecos '' coopsystem
+
+# Copiar arquivos publicados
+COPY --from=publish /app/publish .
+
+# Criar diretório de logs
+RUN mkdir -p logs && chown -R coopsystem:coopsystem logs
+
+# Configurar permissões
+RUN chown -R coopsystem:coopsystem /app
+
+USER coopsystem
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:8080/api/health || exit 1
+
+ENTRYPOINT ["dotnet", "CoopSystem.API.dll"]
